@@ -23,3 +23,6 @@ def search():
 
 if __name__ == '__main__':
     app.run(port=5000)
+    @app.route('/')
+def home():
+    return "Search API is running "
