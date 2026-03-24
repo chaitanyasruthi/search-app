@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My Search App</h2>
+
+<input type="text" id="q">
+<button onclick="search()">Search</button>
+
+<ul id="results"></ul>
+
+<script>
+function search() {
+    let q = document.getElementById("q").value;
+
+    fetch("http://localhost:5000/search?q=" + q)
+    .then(res => res.json())
+    .then(data => {
+        let output = "";
+        data.forEach(item => {
+            output += "<li>" + item + "</li>";
+        });
+        document.getElementById("results").innerHTML = output;
+    });
+}
+</script>
+
+</body>
+</html>
